@@ -1,6 +1,15 @@
 <?php
-$name = $_POST["name"];
-$email = $_POST["email"];
+require 'path/to/PHPMailer.php';
+require 'path/to/SMTP.php';
+require 'path/to/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$mail = new PHPMailer(true);
+
+$name = $_POST["mokonelwazi@gmail.com"];
+$email = $_POST["mokonelwazi@gmail.com"];
 $message = $_POST["message"];
 $EmailTo = "mokonelwazi4@gmail.com";
 $Subject = "New Message Received";
@@ -15,6 +24,28 @@ $Body .= "\n";
 $Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'path/to/PHPMailer.php';
+require 'path/to/SMTP.php';
+require 'path/to/Exception.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.example.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'mokonelwazi4@gmail.com';
+        $mail->Password = 'Jason+777';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
 
  // Recipients
  $mail->setFrom($email, $name);
@@ -33,6 +64,14 @@ if ($success){
 }else{
     echo "invalid";
 }
+
+$mail->send();
+echo 'Message has been sent';
+} catch (Exception $e) {
+echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
+}
+
 ?>
 
 <?php
@@ -55,7 +94,6 @@ if (empty($_POST["message"])) {
 } else {
     $message = $_POST["message"];
 }
-
 ?>
 
 <?php
