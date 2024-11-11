@@ -34,7 +34,7 @@ require 'path/to/Exception.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
-    $email = $_POST['email'];
+    $email = $_POST['mokonelwazi4@gmail.com'];
     $message = $_POST['message'];
 
     $mail = new PHPMailer(true);
