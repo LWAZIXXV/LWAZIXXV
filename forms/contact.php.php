@@ -16,6 +16,15 @@ $Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
 
+ // Recipients
+ $mail->setFrom($email, $name);
+ $mail->addAddress('mokonelwazi4@gmail.com');
+
+ // Content
+ $mail->isHTML(true);
+ $mail->Subject = 'New Contact Form Submission';
+ $mail->Body = 'Name: ' . $name . '<br>Email: ' . $email . '<br>Message: ' . $message;
+
 // send email 
 $success = mail($EmailTo, $Subject, $Body, "From:".$email);
 // redirect to success page 
@@ -46,6 +55,7 @@ if (empty($_POST["message"])) {
 } else {
     $message = $_POST["message"];
 }
+
 ?>
 
 <?php
