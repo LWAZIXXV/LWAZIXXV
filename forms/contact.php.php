@@ -8,8 +8,8 @@ use PHPMailer\PHPMailer\Exception;
 
 $mail = new PHPMailer(true);
 
-$name = $_POST["mokonelwazi@gmail.com"];
-$email = $_POST["mokonelwazi@gmail.com"];
+$name = $_POST["mokonelwazi4@gmail.com"];
+$email = $_POST["mokonelwazi4@gmail.com"];
 $message = $_POST["message"];
 $EmailTo = "mokonelwazi4@gmail.com";
 $Subject = "New Message Received";
